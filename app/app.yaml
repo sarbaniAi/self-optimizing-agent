@@ -7,9 +7,13 @@ command:
   - 8000
 
 env:
-  - name: DATABRICKS_HOST
-    value: https://adb-7405619910560146.6.azuredatabricks.net
   - name: APP_CATALOG
     value: classic_stable_4a2ohn_azure
   - name: APP_SCHEMA
     value: self_optimizing_agent
+  - name: MLFLOW_EXPERIMENT_ID
+    value: "2478689462451681"
+  - name: LLM_ENDPOINT
+    value: databricks-claude-sonnet-4-6
+  - name: EMBEDDING_ENDPOINT
+    value: databricks-gte-large-en
