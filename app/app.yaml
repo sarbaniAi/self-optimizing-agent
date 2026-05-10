@@ -1,0 +1,15 @@
+command:
+  - uvicorn
+  - app:app
+  - --host
+  - 0.0.0.0
+  - --port
+  - 8000
+
+env:
+  - name: DATABRICKS_HOST
+    value: https://adb-7405619910560146.6.azuredatabricks.net
+  - name: APP_CATALOG
+    value: classic_stable_4a2ohn_azure
+  - name: APP_SCHEMA
+    value: self_optimizing_agent

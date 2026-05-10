@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "self-optimizing-agent"
+version = "2.0.0"
+description = "Self-optimizing agent evaluation framework with judge alignment, prompt optimization, and continuous monitoring on Databricks"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Sarbani Maiti", email = "sarbani.maiti@databricks.com"}
+]
+
+dependencies = [
+    "mlflow>=3.1",
+    "databricks-sdk>=0.40.0",
+    "openai>=1.0",
+    "fastapi>=0.110",
+    "uvicorn>=0.27",
+    "pyyaml>=6.0",
+    "pandas>=2.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "httpx"]
+notebooks = ["databricks-connect"]
+
+[tool.setuptools.packages.find]
+include = ["harness*", "agents*", "app*"]

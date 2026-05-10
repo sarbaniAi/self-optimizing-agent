@@ -1,0 +1,30 @@
+bundle:
+  name: self-optimizing-agent
+
+workspace:
+  host: https://adb-7405619910560146.6.azuredatabricks.net
+  profile: dasf-demo
+
+resources:
+  apps:
+    self-optimizing-agent:
+      name: self-optimizing-agent
+      description: "Self-optimizing agent evaluation with judge alignment, prompt optimization, and continuous monitoring"
+      source_code_path: ./app
+
+  jobs:
+    continuous-monitoring:
+      name: self-optimizing-agent-monitoring
+      tasks:
+        - task_key: run_monitoring
+          notebook_task:
+            notebook_path: ./notebooks/04_monitoring_setup.py
+          existing_cluster_id: ${var.cluster_id}
+      schedule:
+        quartz_cron_expression: "0 0 6 * * ?"
+        timezone_id: Asia/Kolkata
+
+variables:
+  cluster_id:
+    description: "Cluster ID for monitoring job"
+    default: ""
